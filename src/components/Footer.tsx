@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Waves } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -18,7 +18,7 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Facebook, href: "https://www.facebook.com/HawaiiRunningProject?ref=embed_page", label: "Facebook" },
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Twitter, href: "#", label: "Twitter" }
   ];
@@ -31,15 +31,19 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-ocean rounded-xl flex items-center justify-center">
-                <Waves className="h-7 w-7 text-white" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white">
+                <img 
+                  src="https://hawaiirunningproject.wordpress.com/wp-content/uploads/2025/01/cropped-cropped-hrp-transparent.png" 
+                  alt="Hawaii Running Project Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-display font-bold text-white">
-                  Aloha Trail Collective
+                  Hawaii Running Project
                 </h3>
                 <p className="text-sm text-background/70">
-                  Sports & Recreation Community
+                  Healthy Communities & Running Club
                 </p>
               </div>
             </div>
@@ -108,7 +112,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <p className="text-background/80">hello@alohatrail.com</p>
+                <p className="text-background/80">HawaiiRunningProject@gmail.com</p>
               </div>
             </div>
 
@@ -138,7 +142,7 @@ const Footer = () => {
         <div className="py-8 border-t border-background/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-background/60 text-sm text-center md:text-left">
-              © 2024 Aloha Trail Collective. All rights reserved. Made with ❤️ in Hawaii.
+              © 2024 Hawaii Running Project. All rights reserved. Made with ❤️ in Hawaii.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-background/60 hover:text-background transition-colors duration-300">

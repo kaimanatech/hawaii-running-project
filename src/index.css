@@ -47,10 +47,10 @@
     --radius: 0.75rem;
 
     /* Hawaiian-inspired gradients */
-    --gradient-ocean: linear-gradient(135deg, hsl(200 85% 45%), hsl(220 70% 55%));
+    --gradient-ocean: linear-gradient(135deg, hsl(140 70% 35%), hsl(140 80% 40%));
     --gradient-sunset: linear-gradient(135deg, hsl(25 85% 60%), hsl(45 80% 65%));
-    --gradient-island: linear-gradient(135deg, hsl(140 60% 40%), hsl(120 50% 50%));
-    --gradient-hero: linear-gradient(135deg, hsl(200 85% 45% / 0.9), hsl(140 60% 40% / 0.9));
+    --gradient-island: linear-gradient(135deg, hsl(140 70% 35%), hsl(120 60% 40%));
+    --gradient-hero: linear-gradient(135deg, hsl(140 70% 35% / 0.9), hsl(140 60% 40% / 0.9));
     
     /* Elegant shadows */
     --shadow-soft: 0 4px 20px -2px hsl(200 85% 45% / 0.1);
@@ -110,10 +110,10 @@
     --input: 210 20% 15%;
     --ring: 200 85% 55%;
     
-    --gradient-ocean: linear-gradient(135deg, hsl(200 85% 55%), hsl(220 70% 65%));
+    --gradient-ocean: linear-gradient(135deg, hsl(140 70% 40%), hsl(140 80% 45%));
     --gradient-sunset: linear-gradient(135deg, hsl(25 75% 65%), hsl(45 70% 70%));
-    --gradient-island: linear-gradient(135deg, hsl(140 50% 50%), hsl(120 45% 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(200 85% 55% / 0.9), hsl(140 50% 50% / 0.9));
+    --gradient-island: linear-gradient(135deg, hsl(140 70% 40%), hsl(120 60% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(140 70% 40% / 0.9), hsl(140 60% 45% / 0.9));
   }
 }
 
@@ -136,7 +136,7 @@
 @layer components {
   /* Hawaiian-inspired component classes */
   .btn-ocean {
-    @apply bg-gradient-to-r from-primary to-blue-600 text-white hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+    @apply bg-gradient-to-r from-green-700 to-green-600 text-white hover:shadow-lg transform hover:scale-105 transition-all duration-300;
   }
   
   .btn-island {
@@ -152,7 +152,7 @@
   }
 
   .text-gradient-ocean {
-    @apply bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-green-700 to-green-600 bg-clip-text text-transparent;
   }
 
   .text-gradient-island {

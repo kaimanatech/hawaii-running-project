@@ -1,27 +1,38 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import Home from '@/pages/Home';
+import AboutPage from '@/pages/AboutPage';
+import SchedulePage from '@/pages/SchedulePage';
+import JoinPage from '@/pages/JoinPage';
+import StorePage from '@/pages/StorePage';
+import CoachingPage from '@/pages/CoachingPage';
+import SponsorsPage from '@/pages/SponsorsPage';
+import DonatePage from '@/pages/DonatePage';
+import NotFound from '@/pages/NotFound';
 
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/schedule" element={<SchedulePage />} />
+            <Route path="/join" element={<JoinPage />} />
+            <Route path="/store" element={<StorePage />} />
+            <Route path="/coaching" element={<CoachingPage />} />
+            <Route path="/sponsors" element={<SponsorsPage />} />
+            <Route path="/donate" element={<DonatePage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
 
 export default App;

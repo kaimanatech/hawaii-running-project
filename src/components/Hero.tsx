@@ -8,7 +8,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1544618047-e1fc0aa8c2c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+          backgroundImage: `url('/background.png')`
         }}
       />
       
@@ -36,7 +36,7 @@ const Hero = () => {
               Join Our Runs
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white/30 hover:bg-white/10 text-lg px-8 py-4">
+            <Button size="lg" className="text-white border-white/30 bg-green-700 text-lg px-8 py-4 hover:bg-green-800">
               Learn More
             </Button>
           </div>
