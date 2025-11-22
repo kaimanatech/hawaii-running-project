@@ -3,9 +3,17 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/80 via-secondary/60 to-accent/40">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('/background.png')`
+        }}
+      />
+      
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 text-center">
