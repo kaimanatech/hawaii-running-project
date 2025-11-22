@@ -3,40 +3,29 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/background.png')`
-        }}
-      />
-      
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/80 via-secondary/60 to-accent/40">
       {/* Gradient Overlay */}
-      <div className="hero-overlay" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 text-center">
         <div className="animate-fade-in">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
-            Starting a Healthy Revolution in{" "}
-            <span className="text-transparent bg-gradient-to-r from-accent to-yellow-400 bg-clip-text">
-              Hawaii
-            </span>{" "}
-            and Beyond
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight drop-shadow-lg">
+            Starting a Healthy<br />
+            Revolution in{" "}
+            <span className="text-accent">Hawaii</span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Join our vibrant community of runners, fitness enthusiasts, and wellness advocates. 
-            Together, we're building healthier lives and stronger communities across the islands.
+          <p className="text-lg sm:text-xl text-white/95 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow">
+            Join our vibrant community of runners, fitness enthusiasts, and wellness advocates. Together, we're building healthier lives and stronger communities across the islands.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" className="btn-sunset text-lg px-8 py-4">
+            <Button size="lg" className="btn-sunset">
               Join Our Runs
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" className="text-white border-white/30 bg-green-700 text-lg px-8 py-4 hover:bg-green-800">
+            <Button size="lg" variant="outline" className="text-white border-white/50 hover:bg-white/10">
               Learn More
             </Button>
           </div>

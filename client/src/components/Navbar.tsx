@@ -41,21 +41,22 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-foreground hover:text-green-700 transition-colors duration-300 font-medium whitespace-nowrap text-sm xl:text-base"
+                className="px-3 py-2 text-foreground hover:text-primary transition-colors duration-300 font-medium whitespace-nowrap text-sm"
               >
                 {link.name}
               </Link>
             ))}
             <Button 
-              className="btn-ocean"
+              className="ml-2 btn-ocean"
               onClick={() => navigate('/join')}
+              size="sm"
             >
-              Join Our Community
+              Join
             </Button>
           </div>
 
