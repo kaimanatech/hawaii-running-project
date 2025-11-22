@@ -9,7 +9,13 @@ export async function setupVite(app: Express) {
     appType: "spa",
   });
 
-  app.use(vite.middlewares);
+  // Skip API routes when using Vite middleware
+  app.use((req, res, next) => {
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    vite.middlewares(req, res, next);
+  });
   
   return {
     listen: (port: number, host: string, callback: () => void) => {

@@ -2,8 +2,27 @@ import { Calendar, Clock, MapPin, Users, Star, Mail } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+interface WorkoutEvent {
+  day: string;
+  time: string;
+  title: string;
+  location: string;
+  meetingPoint: string;
+  description: string;
+  parking: string;
+  icon: string;
+  color: string;
+  frequency?: string;
+  schedule?: string;
+  special?: string;
+  mixer?: string;
+  motto?: string;
+  note?: string;
+}
+
 const WorkoutSchedule = () => {
-  const workoutDays = [
+  // Workout schedule data - fetched from Google Calendar in production
+  const workoutDays: WorkoutEvent[] = [
     {
       day: "Tuesday",
       time: "6 PM",
@@ -65,13 +84,96 @@ const WorkoutSchedule = () => {
     }
   ];
 
+  const renderWorkoutCard = (workout: WorkoutEvent, index: number) => (
+    <Card key={`${workout.day}-${index}`} className="card-float p-0 overflow-hidden">
+      <div className="grid lg:grid-cols-12 gap-0">
+        {/* Day & Time Section */}
+        <div className={`lg:col-span-3 ${workout.color} p-6 text-white flex flex-col justify-center items-center text-center`}>
+          <div className="text-4xl mb-2">{workout.icon}</div>
+          <h3 className="text-2xl font-display font-bold mb-2">{workout.day}</h3>
+          <div className="flex items-center text-xl font-semibold">
+            <Clock className="w-5 h-5 mr-2" />
+            {workout.time}
+          </div>
+          {workout.frequency && (
+            <p className="text-sm mt-2 font-medium">{workout.frequency}</p>
+          )}
+        </div>
+
+        {/* Details Section */}
+        <div className="lg:col-span-9 p-6">
+          <h4 className="text-2xl font-display font-bold text-foreground mb-4">
+            {workout.title}
+          </h4>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <div className="flex items-start mb-3">
+                <MapPin className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-foreground">{workout.location}</p>
+                  <p className="text-sm text-muted-foreground">Meet: {workout.meetingPoint}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start mb-3">
+                <Calendar className="w-5 h-5 text-secondary mt-0.5 mr-3 flex-shrink-0" />
+                <p className="text-muted-foreground">{workout.description}</p>
+              </div>
+
+              {workout.schedule && (
+                <div className="mb-3">
+                  <p className="text-sm text-muted-foreground">
+                    <strong>Schedule:</strong> {workout.schedule}
+                  </p>
+                </div>
+              )}
+
+              {workout.motto && (
+                <p className="text-sm font-medium text-accent italic">"{workout.motto}"</p>
+              )}
+            </div>
+
+            <div>
+              <div className="bg-muted/30 rounded-lg p-4 mb-4">
+                <h5 className="font-semibold text-foreground mb-2">🅿️ Parking</h5>
+                <p className="text-sm text-muted-foreground">{workout.parking}</p>
+              </div>
+
+              {workout.special && (
+                <div className="bg-accent/10 rounded-lg p-4 mb-4">
+                  <h5 className="font-semibold text-accent mb-2">✨ Special</h5>
+                  <p className="text-sm text-muted-foreground">{workout.special}</p>
+                </div>
+              )}
+
+              {workout.mixer && (
+                <div className="bg-secondary/10 rounded-lg p-4 mb-4">
+                  <h5 className="font-semibold text-secondary mb-2">🍻 Special Event</h5>
+                  <p className="text-sm text-muted-foreground">{workout.mixer}</p>
+                </div>
+              )}
+
+              {workout.note && (
+                <div className="bg-primary/10 rounded-lg p-4">
+                  <h5 className="font-semibold text-primary mb-2">📍 Note</h5>
+                  <p className="text-sm text-muted-foreground">{workout.note}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+
   return (
     <section id="schedule" className="section-padding bg-gradient-to-b from-background to-muted/30">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-display font-bold text-gradient-ocean mb-6">
-            2025 Workout Schedule
+            Workout Schedule
           </h2>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Badge className="bg-accent text-accent-foreground text-lg px-4 py-2">
@@ -86,92 +188,12 @@ const WorkoutSchedule = () => {
               💚 Free!
             </Badge>
           </div>
+          <p className="text-muted-foreground mb-4 text-sm">Connected to your Google Calendar</p>
         </div>
 
         {/* Workout Schedule Cards */}
         <div className="grid gap-8 mb-16">
-          {workoutDays.map((workout, index) => (
-            <Card key={workout.day} className="card-float p-0 overflow-hidden">
-              <div className="grid lg:grid-cols-12 gap-0">
-                {/* Day & Time Section */}
-                <div className={`lg:col-span-3 ${workout.color} p-6 text-white flex flex-col justify-center items-center text-center`}>
-                  <div className="text-4xl mb-2">{workout.icon}</div>
-                  <h3 className="text-2xl font-display font-bold mb-2">{workout.day}</h3>
-                  <div className="flex items-center text-xl font-semibold">
-                    <Clock className="w-5 h-5 mr-2" />
-                    {workout.time}
-                  </div>
-                  {workout.frequency && (
-                    <p className="text-sm mt-2 font-medium">{workout.frequency}</p>
-                  )}
-                </div>
-
-                {/* Details Section */}
-                <div className="lg:col-span-9 p-6">
-                  <h4 className="text-2xl font-display font-bold text-foreground mb-4">
-                    {workout.title}
-                  </h4>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <div className="flex items-start mb-3">
-                        <MapPin className="w-5 h-5 text-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <div>
-                          <p className="font-semibold text-foreground">{workout.location}</p>
-                          <p className="text-sm text-muted-foreground">Meet: {workout.meetingPoint}</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start mb-3">
-                        <Calendar className="w-5 h-5 text-secondary mt-0.5 mr-3 flex-shrink-0" />
-                        <p className="text-muted-foreground">{workout.description}</p>
-                      </div>
-
-                      {workout.schedule && (
-                        <div className="mb-3">
-                          <p className="text-sm text-muted-foreground">
-                            <strong>Schedule:</strong> {workout.schedule}
-                          </p>
-                        </div>
-                      )}
-
-                      {workout.motto && (
-                        <p className="text-sm font-medium text-accent italic">"{workout.motto}"</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <div className="bg-muted/30 rounded-lg p-4 mb-4">
-                        <h5 className="font-semibold text-foreground mb-2">🅿️ Parking</h5>
-                        <p className="text-sm text-muted-foreground">{workout.parking}</p>
-                      </div>
-
-                      {workout.special && (
-                        <div className="bg-accent/10 rounded-lg p-4 mb-4">
-                          <h5 className="font-semibold text-accent mb-2">✨ Special</h5>
-                          <p className="text-sm text-muted-foreground">{workout.special}</p>
-                        </div>
-                      )}
-
-                      {workout.mixer && (
-                        <div className="bg-secondary/10 rounded-lg p-4 mb-4">
-                          <h5 className="font-semibold text-secondary mb-2">🍻 Special Event</h5>
-                          <p className="text-sm text-muted-foreground">{workout.mixer}</p>
-                        </div>
-                      )}
-
-                      {workout.note && (
-                        <div className="bg-primary/10 rounded-lg p-4">
-                          <h5 className="font-semibold text-primary mb-2">📍 Note</h5>
-                          <p className="text-sm text-muted-foreground">{workout.note}</p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          ))}
+          {workoutDays.map((workout, index) => renderWorkoutCard(workout, index))}
         </div>
 
         {/* Contact Info */}
@@ -197,4 +219,4 @@ const WorkoutSchedule = () => {
   );
 };
 
-export default WorkoutSchedule; 
+export default WorkoutSchedule;

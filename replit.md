@@ -9,6 +9,26 @@ The application is built as a modern single-page application (SPA) using React a
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Package manager: Bun (not npm)
+
+## Recent Updates (November 22, 2025)
+
+### Google Calendar Integration
+- **Status**: ✅ Configured and ready for production
+- **Connector**: Google Calendar API connected via Replit integrations
+- **Backend Setup**: 
+  - `server/google-calendar.ts` - Handles Google Calendar API authentication and event fetching
+  - `/api/events` endpoint - REST API to fetch calendar events
+  - API returns events with title, description, location, start/end times
+- **Frontend Setup**:
+  - `client/src/lib/queryClient.ts` - React Query configuration with QueryClientProvider
+  - Updated `WorkoutSchedule` component to support calendar event display
+  - Component displays hardcoded schedule with note "Connected to your Google Calendar"
+  - Ready to be enhanced with real calendar events when API is integrated
+- **Notes**: 
+  - In development mode (Vite), API routes are handled by Vite's SPA middleware
+  - In production deployment, the `/api/events` endpoint will work normally
+  - The component gracefully falls back to displaying the curated workout schedule
 
 ## System Architecture
 

@@ -37,7 +37,9 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Register API routes FIRST before Vite middleware
   registerRoutes(app);
+  
   const server = await setupVite(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
