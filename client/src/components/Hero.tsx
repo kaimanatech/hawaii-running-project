@@ -33,7 +33,7 @@ const Hero = () => {
               Join Our Runs
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white/50 hover:bg-white/10">
+            <Button size="lg" className="bg-secondary text-white hover:bg-secondary/90">
               Learn More
             </Button>
           </div>
