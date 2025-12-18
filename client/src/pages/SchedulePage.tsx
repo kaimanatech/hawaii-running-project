@@ -4,7 +4,7 @@ import CalendarView from "@/components/CalendarView";
 const SchedulePage = () => {
   return (
     <div className="min-h-screen pt-16">
-      <CalendarView />
+      {/* <CalendarView /> */}
       <WorkoutSchedule />
     </div>
   );
