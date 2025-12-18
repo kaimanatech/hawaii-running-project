@@ -1,0 +1,9 @@
+{
+  "name": "hawaii-running-project",
+  "compatibility_date": "2025-12-18",
+  "assets": {
+    "directory": "./dist/public",
+    "binding": "ASSETS"
+  }
+}
+
